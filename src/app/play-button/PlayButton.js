@@ -7,7 +7,9 @@ class PlayButton extends Component {
   render() {
     return (
       <div className="col-2">
-        <button>=</button>
+        <button className="btn" disabled={!this.props.selectedNumbers.length}>
+          =
+        </button>
       </div>
     );
   }

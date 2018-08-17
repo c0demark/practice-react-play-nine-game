@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import * as _ from "lodash";
+import classNames from "classnames";
+
 import "./Numbers.css";
 
 class Numbers extends Component {
@@ -12,13 +14,24 @@ class Numbers extends Component {
       <div className="card text-center">
         <div>
           {this.arrayOfNumbers.map((number, index) => (
-            <span key={index} className="Numbers Numbers-number-circle">
+            <span
+              key={index}
+              className={this.setClasses(number)}
+              onClick={() => {
+                this.props.selectNumber(number);
+              }}
+            >
               {number}
             </span>
           ))}
         </div>
       </div>
     );
+  }
+  setClasses(number) {
+    return `Numbers Numbers-number-circle${
+      this.props.selectedNumbers.indexOf(number) >= 0 ? " selected" : ""
+    }`;
   }
 }
 

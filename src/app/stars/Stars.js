@@ -8,10 +8,9 @@ class Stars extends Component {
     super(props);
   }
   render() {
-    const numberOfStars = 1 + Math.floor(Math.random() * 9);
     return (
       <div className="col-5">
-        {_.range(numberOfStars).map(index => (
+        {_.range(this.props.numberOfStars).map(index => (
           <i
             key={index}
             className="fa fa-star Stars Stars-icon"

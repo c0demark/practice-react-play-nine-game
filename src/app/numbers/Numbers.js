@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import * as _ from "lodash";
-import classNames from "classnames";
 
 import "./Numbers.css";
 
@@ -30,7 +29,11 @@ class Numbers extends Component {
   }
   setClasses(number) {
     return `Numbers Numbers-number-circle${
-      this.props.selectedNumbers.indexOf(number) >= 0 ? " selected" : ""
+      this.props.usedNumbers.indexOf(number) >= 0
+        ? " used"
+        : this.props.selectedNumbers.indexOf(number) >= 0
+          ? " selected"
+          : ""
     }`;
   }
 }
